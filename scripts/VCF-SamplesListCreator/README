@@ -1,0 +1,17 @@
+Usage: python VCFSamplesListCreator.py -h
+
+
+#ABOUT VCF SamplesList Creator
+This tool's input is a vcf file. It is creating lists with samples, that have a variation in none, one or both haploids.
+WARNING! Use phased flag if the vcf file is phased, or else there will be no output
+It can be used as input in some programs like SweeD or OmegaPlus.
+
+
+#VERSION CHANGELOG
+-0.1 - CURRENT
++ header and phased options added
++ output filenames changed
+
+
+#Contact
+Contact me at skarisg@gmail.com for reporting bugs or anything else! :)

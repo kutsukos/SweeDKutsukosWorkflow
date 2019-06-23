@@ -1,0 +1,4 @@
+1	111802592	~/synology/common/1KGP_phase3_data/ALL.chr1.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf	gridLists/points.1.111552592.112052592.out	sampleLists/ERVtest.1.111802592.00.out	00
+12	44313657	~/synology/common/1KGP_phase3_data/ALL.chr12.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf	gridLists/points.12.44063657.44563657.out	sampleLists/ERVtest.12.44313657.00.out	00
+1	111802592	~/synology/common/1KGP_phase3_data/ALL.chr1.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf	gridLists/points.1.111552592.112052592.out	sampleLists/ERVtest.1.111802592.11.out	11
+12	44313657	~/synology/common/1KGP_phase3_data/ALL.chr12.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf	gridLists/points.12.44063657.44563657.out	sampleLists/ERVtest.12.44313657.11.out	11
