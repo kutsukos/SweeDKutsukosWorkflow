@@ -70,12 +70,16 @@ After the sequence of commands, you have successfully installed SweeD and you ar
 
 ## Step 2 - Preparation of the required data <a name="step2"></a>
 In this step, we will prepare the files that are going to be used for using SweeD.
+
 <br>
 
 #### Step 2.1 - ERV Insertions Information <a name="step21"></a>
 The group of individuals and the positions, that we are going to analyse, are defined in a VCF format file. 
-<br>This file is available in this repository, in directory "Support Data" and we are going to use it in the next steps.
-<br><code>Copy this vcf file to your "your-project-name" directory.</code>
+
+This file is available in this repository, in directory "Support Data" and we are going to use it in the next steps.
+
+<code>Copy this vcf file to your "your-project-name" directory.</code>
+
 <br>
 
 #### Step 2.2 - Samples extraction from vcf file <a name="step22"></a>
@@ -108,14 +112,18 @@ These files contain lists of samples that are genotyped with 0/0 or 1/1 for inse
 **NOTE!**  The files above, will be in this repository in the directory Support Data/sampleLists/
 
 <br>
+
 #### Step 2.3 - Grid points selection <a name="step23"></a>
 For this analysis, we want to apply SweeD in a specific area for each insertion.
-<br>There are two insertions, chr1:111802592 and chr12:44313657 and we want to create 101 equally distributed points, including the insertion position, in a 500Kb space before and after each insertion.
+
+There are two insertions, chr1:111802592 and chr12:44313657 and we want to create 101 equally distributed points, including the insertion position, in a 500Kb space before and after each insertion.
 
 In chromosome 1, we want to do the analysis in 101 points, with a distance of 5000bp and the middle point to be 111802592. So starting point should be <code>middle_point-(100/2)*distance=111552592</code> and ending point should be equal to <code>middle_point+(100/2)*distance=112052592</code>.  We use 100 in this equation, to exclude the middle point and 100/2 to take the half points before and the half points after the middle point.
 
-<br>In chromosome 12, we want to do the analysis in 101 points, with a distance of 5000bp and the middle point to be 44313657. The same way as above, we calculate starting and ending point of our grid points.
-<br>For our needs above, we will run the following commands and make use of an another script, I have written in python.
+
+In chromosome 12, we want to do the analysis in 101 points, with a distance of 5000bp and the middle point to be 44313657. The same way as above, we calculate starting and ending point of our grid points.
+
+For our needs above, we will run the following commands and make use of an another script, I have written in python.
 
 ```console
 $ git clone https://github.com/kutsukos/GridFileCreator.git
