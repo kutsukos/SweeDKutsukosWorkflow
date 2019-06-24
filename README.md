@@ -1,4 +1,4 @@
-# SweeD Kutsukos Workflow 3
+# SweeD Kutsukos Workflow 3.1
 This series of steps was used to detect positive selection on ERV insertions in the human genome. For this example, we are going to use only two ERV insertions.
 
 **Don't forget!** During this example-workflow, we are talking about ERVs insertions in human genome. This example may apply to insertions in other species. Use it wisely!
@@ -156,7 +156,7 @@ $ mv ALL.* vcfFiles/
 <br>
 
 ## Step 3 - Preparing SweeD commands <a name="step3"></a>
-For this example, we have just 4 runs to execute, but in other cases, there can be more. So we developed SweeDcc python script in order to create a list of commands.Please place SweeDcc python script inside the main working directory.
+For this example, we have just 4 runs to execute, but in other cases, there can be more. So we developed SweeDcc python script in order to create a list of commands. Please place SweeDcc python script inside the main working directory.
 
 In order to run SweeDcc, a tab-delimited file that, will contain all the necessary information for creating the commands and to define some options, is needed. 
 
@@ -176,11 +176,12 @@ In our case, we will use both of those options.
 SweeDcc need also some arguments:
 1. -t | The number of threads to be used in  executing SweeD
 2. -g | Grid. For more info, please read SweeD Manual. In case there is a grid file used, this option is ignored
+3. -S | Flag to create commands for running SweeD with vcf files as input
 
 For our example, we will choose <code>2</code> threads and <code>111</code> as grid, which will be ignored, because we use a grid file.
 
 ```console
-$ python SweeDcc.py -i testproject.tab -t 2 -g 111
+$ python SweeDcc.py -S -i testproject.tab -t 2 -g 111
 $ chmod +x testproject.SweeD.cmd
 ```
 <br>
@@ -252,7 +253,7 @@ In this example, we have many control areas in the same chromosomes and it will 
 
 SweeD give us the opportunity to firstly calculate osf for all samples of each insertion in whole chromosomes and then calculate values for each area separately.
 
-For this procedure, we will use a python script, <code>SweeDcc.sfOUT</code>, you can find inside this repository, to create the commands. The script needs a tab-delimited file with some mandatory information and a file containing a list of the input data filepaths that are going to be used for applying SweeD. 
+For this procedure, we will use again, <code>SweeDcc</code> python script, you can find inside this repository, to create the commands. The script, in this case, needs a tab-delimited file with some mandatory information and a file containing a list of the input data filepaths that are going to be used for applying SweeD. 
 
 **NOTE!** Both of those files, can be found in support data. Reach them to understand the format and the content of those files.
 
@@ -261,15 +262,16 @@ The tab-delimited file contains 3 fixed fields per line. Fixed fields are:
 2. position - the position of the insertion
 3. sample list filepath - the path to the file containing the samples' list
 
-We will have also to define some arguments for SweeDcc.sfOUT:
+We will have also to define some arguments for SweeDcc:
 1. -i | A tab-delimited file with some basic information for the run
 2. -v | A file that contains a list of filepaths to vcf files for the analysis
 3. -t | The number of threads to be used in  executing SweeD
+4. -O | To create commands for running SweeD to output osf files
 
 Now, we are ready to create some commands.
 
 ```console
-$ python SweeDcc.sfOUT.py -i testproject.ctrlosf.tab -v vcfList.list -t 2
+$ python SweeDcc.py -O -i testproject.ctrlosf.tab -v vcfList.list -t 2
 ```
 This command will create a file <code>testproject.ctrlosf.cmd</code> with the commands that we will need to execute in order to create sf files that are needed for the next stage of this analysis.
 
@@ -280,8 +282,8 @@ Now we can execute the commands and create a folder to move the outputs there.
 
 As mentioned above, there are ways to run these commands in parallel, but this workflow is not designed this way.
 ```console
-$ chmod +x testproject.ctrlosf.cmd
-$ ./testproject.ctrlosf.cmd
+$ chmod +x testproject.ctrlosf.sfOUT.cmd
+$ ./testproject.ctrlosf.sfOUT.cmd
 $ mkdir sweedCTRLOSF
 $ mv *.sfrun sweedCTRLOSF/
 $ mv *.sf sweedCTRLOSF/
@@ -290,13 +292,14 @@ $ mv *.sf sweedCTRLOSF/
 <br>
 
 ## Step 9 - Preparing SweeD control commands - Stage2 [using -osf option] <a name="step9"></a>
-For this procedure, we will use a python script, <code>SweeDcc.sfIN</code> , you can find inside this repository, to create the commands. This script needs a tab-delimited file with some basic information, we already have created for previous purpose. 
+For this procedure, we will use for one last time, <code>SweeDcc</code> python script, you can find inside this repository, to create the commands. This script needs a tab-delimited file with some basic information, we already have created for previous purpose. 
 This file is <code>testproject.ctrl.list</code> and is provided in this repository in support data directory.
 
 We will have also to define some arguments for SweeDCMDcreator.sfIN:
 1. -i | A tab-delimited file with some basic information for the run
 2. -t | The number of threads to be used
 3. -p | The path where the sf files are stored. We created this directory in Step 6.2.1
+4. -I | To create commands for running SweeD with osf files as input
 
 Now, we are ready to create some commands.
 
@@ -305,7 +308,7 @@ $ cd gridListsCTRL/
 $ ls > ctrlpoints.list
 //In this step remember to open ctrlpoints.list file and delete the last line.
 $ cd ..
-$ python SweeDcc.sfIN.py -i testproject.ctrlosf.tab -t 2 -p sweedCTRLOSF/ -l gridListsCTRL/ctrlpoints.list -L gridListsCTRL/
+$ python SweeDcc.sfIN.py -I -i testproject.ctrlosf.tab -t 2 -p sweedCTRLOSF/ -l gridListsCTRL/ctrlpoints.list -L gridListsCTRL/
 ```
 
 <br>
@@ -357,11 +360,13 @@ The scripts, used in this tutorial, was developed in a few hours and there are n
 
 ## VERSION CHANGELOG <a name="version"></a>
 <pre>
--3 CURRENT
+-3 
    + A more specialized workflow for this project
--3.1
-   + Comments added in python and R scripts
+-3.1 CURRENT
+   + Comments added in python scripts
    + One python script to create commands for SweeD
+-3.2
+   + Comments added in R script
 </pre>
 
 
