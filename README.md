@@ -273,7 +273,7 @@ Now, we are ready to create some commands.
 ```console
 $ python SweeDcc.py -O -i testproject.ctrlosf.tab -v vcfList.list -t 2
 ```
-This command will create a file <code>testproject.ctrlosf.cmd</code> with the commands that we will need to execute in order to create sf files that are needed for the next stage of this analysis.
+This command will create a file <code>testproject.ctrlosf.sfOUT.cmd</code> with the commands that we will need to execute in order to create sf files that are needed for the next stage of this analysis.
 
 <br>
 
