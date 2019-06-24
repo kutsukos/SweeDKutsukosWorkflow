@@ -1,4 +1,4 @@
-# SweeD Kutsukos Workflow 3.2
+# SweeD Kutsukos Workflow 3.1
 This series of steps was used to detect positive selection on ERV insertions in the human genome. For this example, we are going to use only two ERV insertions.
 
 **Don't forget!** During this example-workflow, we are talking about ERVs insertions in human genome. This example may apply to insertions in other species. Use it wisely!
