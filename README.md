@@ -24,10 +24,9 @@ This series of steps was used to detect positive selection on ERV insertions in 
 9. [Step 9 - Preparing SweeD control commands - Stage2 [using -osf option] ](#step9)
 10. [Step 10 - Executing SweeD control commands- Stage2 [using -osf option] ](#step10)
 11. [Step 11 - Visualization of SweeD results ](#step11)
-12. [Important Note](#note)
-13. [Citations](#cite)
-14. [Version Changelog](#version)
-15. [Contact](#contact)
+12. [Citations](#cite)
+13. [Version Changelog](#version)
+14. [Contact](#contact)
 
 
 ## Required applications and OS <a name="reqs"></a>
