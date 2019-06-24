@@ -1,4 +1,4 @@
-# SweeD Kutsukos Workflow 3.1
+# SweeD Kutsukos Workflow 3.2
 This series of steps was used to detect positive selection on ERV insertions in the human genome. For this example, we are going to use only two ERV insertions.
 
 **Don't forget!** During this example-workflow, we are talking about ERVs insertions in human genome. This example may apply to insertions in other species. Use it wisely!
@@ -340,12 +340,9 @@ The last two arguments are the paths, first for the control results and second f
 $ Rscript SweeDPlot.R testproject.tab gridListsCTRL/ctrlpoints.list sweedCTRLResults/ sweedResults/
 ```
 
-<br>
 This script creates a pdf file named "sweed.plot.pdf", that contains the plots we wanted to create.
-</p>
 
-## **Ιmportant Note 2!** <a name="note"></a>
-The scripts, used in this tutorial, was developed in a few hours and there are no comments and the names of the variables sometimes are confusing. There is going to be an update soon with a better written scripts. Until then, report me anything wrong, that happened while following this tutorial and I will try to fix it.
+<br>
 
 ## CITATIONS <a name="cite"></a>
 1. Pavlidis, P., Živković, D., Stamatakis, A., & Alachiotis, N. (2013). SweeD: likelihood-based detection of selective sweeps in thousands of genomes. Molecular biology and evolution, 30(9), 2224-2234.
@@ -362,11 +359,9 @@ The scripts, used in this tutorial, was developed in a few hours and there are n
 <pre>
 -3 
    + A more specialized workflow for this project
--3.1 CURRENT
-   + Comments added in python scripts
+-3.1 - CURRENT
+   + Comments added in python and R scripts
    + One python script to create commands for SweeD
--3.2
-   + Comments added in R script
 </pre>
 
 
