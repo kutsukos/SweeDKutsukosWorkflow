@@ -341,6 +341,8 @@ $ Rscript SweeDPlot.R testproject.tab gridListsCTRL/ctrlpoints.list sweedCTRLRes
 
 This script creates a pdf file named "sweed.plot.pdf", that contains the plots we wanted to create.
 
+Insertions' plots with points that exceed the threshold are considered to have evidence for positive selection.
+
 <br>
 
 ## CITATIONS <a name="cite"></a>
